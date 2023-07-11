@@ -3,28 +3,28 @@ const generateDeckOfCards = () => {
   for (i = 0; i < 13; i++) {
     deckOfCards.push({
       cardNumber: i + 1,
-      typeOfclub: "spades",
+      typeOfSuit: "spades",
       boolean: false,
     });
   }
   for (i = 0; i < 13; i++) {
     deckOfCards.push({
       cardNumber: i + 1,
-      typeOfclub: "clubs",
+      typeOfSuit: "clubs",
       boolean: false,
     });
   }
   for (i = 0; i < 13; i++) {
     deckOfCards.push({
       cardNumber: i + 1,
-      typeOfclub: "diamonds",
+      typeOfSuit: "diamonds",
       boolean: false,
     });
   }
   for (i = 0; i < 13; i++) {
     deckOfCards.push({
       cardNumber: i + 1,
-      typeOfclub: "hearts",
+      typeOfSuit: "hearts",
       boolean: false,
     });
   }
