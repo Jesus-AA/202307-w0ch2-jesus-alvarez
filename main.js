@@ -1,12 +1,22 @@
 const generateDeckOfCards = () => {
-  const numbersAndLetters = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
-  const typeOfClub = ["S", "C", "D", "H"];
   const deckOfCards = [];
-  for (let i = 0; i < typeOfClub.length; i++) {
-    for (let j = 0; j < numbersAndLetters.length; j++) {
-      deckOfCards.push(typeOfClub[i] + numbersAndLetters[j]);
-    }
+
+  for (i = 0; i < 13; i++) {
+    deckOfCards.push({ card: i + 1, club: "spades", boolean: false });
   }
+
+  for (i = 0; i < 13; i++) {
+    deckOfCards.push({ card: i + 1, club: "clubs", boolean: false });
+  }
+
+  for (i = 0; i < 13; i++) {
+    deckOfCards.push({ card: i + 1, club: "diamonds", boolean: false });
+  }
+
+  for (i = 0; i < 13; i++) {
+    deckOfCards.push({ card: i + 1, club: "hearts", boolean: false });
+  }
+
   return deckOfCards;
 };
 
