@@ -1,22 +1,33 @@
 const generateDeckOfCards = () => {
   const deckOfCards = [];
-
   for (i = 0; i < 13; i++) {
-    deckOfCards.push({ card: i + 1, club: "spades", boolean: false });
+    deckOfCards.push({
+      cardNumber: i + 1,
+      typeOfclub: "spades",
+      boolean: false,
+    });
   }
-
   for (i = 0; i < 13; i++) {
-    deckOfCards.push({ card: i + 1, club: "clubs", boolean: false });
+    deckOfCards.push({
+      cardNumber: i + 1,
+      typeOfclub: "clubs",
+      boolean: false,
+    });
   }
-
   for (i = 0; i < 13; i++) {
-    deckOfCards.push({ card: i + 1, club: "diamonds", boolean: false });
+    deckOfCards.push({
+      cardNumber: i + 1,
+      typeOfclub: "diamonds",
+      boolean: false,
+    });
   }
-
   for (i = 0; i < 13; i++) {
-    deckOfCards.push({ card: i + 1, club: "hearts", boolean: false });
+    deckOfCards.push({
+      cardNumber: i + 1,
+      typeOfclub: "hearts",
+      boolean: false,
+    });
   }
-
   return deckOfCards;
 };
 
@@ -27,4 +38,4 @@ const selectRandomCard = () => {
   return cardNumberOne;
 };
 
-console.log(`Your card is ${selectRandomCard()}`);
+console.log(selectRandomCard());
