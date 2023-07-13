@@ -2,33 +2,42 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Card Game</title>
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css" />
   <script src="./main.js" defer></script>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 </head>
 
 <body>
   <header>Greater or Smaller?</header>
-  <button class="start-button">Start</button>
-  <div class="default-card hidden">
-    <div class="card-default">
-      <span class="card-default-suit"></span>
-      <span class="card-default-number"></span>
-    </div>
+  <div class="div-start-button">
+    <button class="start-button">Start</button>
   </div>
-  <div class="user-card hidden">
-    <div class="card-user">
-      <span class="card-user-suit"></span>
-      <span class="card-user-number"></span>
-    </div>
-  </div>
-  <span class="feedbackmessage hidden"></span>
-  <button class="greater hidden">Greater</button>
-  <button class="smaller hidden">Smaller</button>
 
+  <section class="cards hidden">
+    <div class="default-card">
+      <div class="card-default">
+        <span class="card-default-suit"></span>
+        <span class="card-default-number"></span>
+      </div>
+    </div>
+
+    <div class="user-card">
+      <div class="card-user">
+        <span class="card-user-suit"></span>
+        <span class="card-user-number"></span>
+      </div>
+    </div>
+  </section>
+
+  <span class="feedbackmessage hidden"></span>
+
+  <section class="button-section hidden">
+    <button class="greater">Greater</button>
+    <button class="smaller">Smaller</button>
+  </section>
 </body>
 
 </html>

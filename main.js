@@ -92,13 +92,11 @@ const selectRandomSmallerCard = () => {
 const startGame = () => {
   randomDefaultCard = displayRandomDefaultCard();
   startButton.classList.add("hidden");
-  greaterButton.classList.remove("hidden");
-  smallerButton.classList.remove("hidden");
-  userCardSquare.classList.remove("hidden");
-  defaultCardSquare.classList.remove("hidden");
+  twoButtons.classList.remove("hidden");
+  cardSquare.classList.remove("hidden");
   feedBack.classList.remove("hidden");
   document.querySelector(".card-user-suit").textContent = "";
-  document.querySelector(".card-user-number").textContent = "";
+  document.querySelector(".card-user-number").textContent = "❔";
   document.querySelector(".feedbackmessage").textContent = "";
 };
 
@@ -111,8 +109,8 @@ smallerButton.addEventListener("click", selectRandomSmallerCard);
 const startButton = document.querySelector(".start-button");
 startButton.addEventListener("click", startGame);
 
-const userCardSquare = document.querySelector(".user-card");
-
-const defaultCardSquare = document.querySelector(".default-card");
+const cardSquare = document.querySelector(".cards");
 
 const feedBack = document.querySelector(".feedbackmessage");
+
+const twoButtons = document.querySelector(".button-section");
