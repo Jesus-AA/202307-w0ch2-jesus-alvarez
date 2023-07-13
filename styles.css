@@ -100,9 +100,8 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  padding: 20px;
+  height: 70px;
+  padding: 30px;
 }
 
 .card-default-suit {
