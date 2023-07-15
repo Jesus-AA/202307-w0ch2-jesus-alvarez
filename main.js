@@ -95,6 +95,8 @@ const startGame = () => {
   buttonSection.classList.remove("hidden");
   document.querySelector(".userCardNumber").textContent = "❔";
   document.querySelector(".message").textContent = "";
+  document.querySelector(".userUpperSuit").textContent = "";
+  document.querySelector(".userBottomSuit").textContent = "";
 };
 
 const starButtonElement = document.querySelector(".start-button");
