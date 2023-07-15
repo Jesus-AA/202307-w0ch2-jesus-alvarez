@@ -1,116 +1,115 @@
-let randomDefaultCard;
+let defaultCard;
 
-const generateDeckOfCards = () => {
-  const numbersAndLetters = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
-  const kindOfSuit = ["♠️", "♣️", "♦️", "🖤"];
-  const deckOfCards = [];
-  for (let suit = 0; suit < kindOfSuit.length; suit++) {
-    for (let number = 0; number < numbersAndLetters.length; number++) {
-      deckOfCards.push({
-        suitType: kindOfSuit[suit],
-        cardNumber: numbersAndLetters[number],
-        cardValue: number + 2,
+const createDeck = () => {
+  const cardsNumbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
+  const cardsSuits = ["♥", "♦️", "♣️", "♠️"];
+  const cardsDeck = [];
+  for (let suit = 0; suit < cardsSuits.length; suit++) {
+    for (
+      let numberOrLetter = 0;
+      numberOrLetter < cardsNumbers.length;
+      numberOrLetter++
+    ) {
+      cardsDeck.push({
+        suitKind: cardsSuits[suit],
+        number: cardsNumbers[numberOrLetter],
+        value: numberOrLetter + 2,
       });
     }
   }
-  return deckOfCards;
+  return cardsDeck;
 };
 
-const displayRandomDefaultCard = () => {
-  let deckOfCards = generateDeckOfCards();
-  let indexCardNumberOne = Math.floor(Math.random() * deckOfCards.length);
-  let cardNumberOne = deckOfCards[indexCardNumberOne];
-  document.querySelector(".card-default-suit").textContent =
-    cardNumberOne.suitType;
-  document.querySelector(".card-default-number").textContent =
-    cardNumberOne.cardNumber;
-  return cardNumberOne;
+const defaultRandomCard = () => {
+  const deck = createDeck();
+  let randomCardIndex = Math.floor(Math.random() * deck.length);
+  defaultCard = deck[randomCardIndex];
+
+  document.querySelector(".defaultUpperSuit").textContent =
+    defaultCard.suitKind;
+  document.querySelector(".defaultCardNumber").textContent = defaultCard.number;
+  document.querySelector(".defaultBottomSuit").textContent =
+    defaultCard.suitKind;
+
+  return defaultCard;
 };
 
-const selectRandomBiggerCard = () => {
-  document.querySelector(".feedbackmessage").textContent = "";
-  let deckOfCards = generateDeckOfCards();
-  let indexCardNumberOne = Math.floor(Math.random() * deckOfCards.length);
-  let cardNumberOne = deckOfCards[indexCardNumberOne];
-  const greaterFeedback = "Greater 😄";
-  const smallerFeedback = "Smaller 😐";
-  const sameValueFeedback = "🤷‍♂️";
+const selectBiggerRandomCard = () => {
+  const deck = createDeck();
+  const randomCardIndex = Math.floor(Math.random() * deck.length);
+  let userRandomCard = deck[randomCardIndex];
+  const youWinMessage = "Bigger😎";
+  const youLostMessage = "Smaller😑";
+  const tieGame = "Tie🤷";
 
-  document.querySelector(".card-user-suit").textContent =
-    cardNumberOne.suitType;
-  document.querySelector(".card-user-number").textContent =
-    cardNumberOne.cardNumber;
+  document.querySelector(".userUpperSuit").textContent =
+    userRandomCard.suitKind;
+  document.querySelector(".userCardNumber").textContent = userRandomCard.number;
+  document.querySelector(".userBottomSuit").textContent =
+    userRandomCard.suitKind;
 
-  if (cardNumberOne.cardValue > randomDefaultCard.cardValue) {
-    document.querySelector(".feedbackmessage").textContent = greaterFeedback;
+  if (userRandomCard.value > defaultCard.value) {
+    document.querySelector(".message").textContent = youWinMessage;
   }
-
-  if (cardNumberOne.cardValue < randomDefaultCard.cardValue) {
-    document.querySelector(".feedbackmessage").textContent = smallerFeedback;
+  if (userRandomCard.value < defaultCard.value) {
+    document.querySelector(".message").textContent = youLostMessage;
   }
-
-  if (cardNumberOne.cardValue === randomDefaultCard.cardValue) {
-    document.querySelector(".feedbackmessage").textContent = sameValueFeedback;
+  if (userRandomCard.value === defaultCard.value) {
+    document.querySelector(".message").textContent = tieGame;
   }
-
-  setTimeout(startGame, "3000");
-
-  return;
+  setTimeout(startGame, "2000");
 };
 
-const selectRandomSmallerCard = () => {
-  document.querySelector(".feedbackmessage").textContent = "";
-  let deckOfCards = generateDeckOfCards();
-  let indexCardNumberOne = Math.floor(Math.random() * deckOfCards.length);
-  let cardNumberOne = deckOfCards[indexCardNumberOne];
-  const greaterFeedback = "Greater 😐";
-  const smallerFeedback = "Smaller 😄";
-  const sameValueFeedback = "🤷‍♂️";
+const selectSmallerRandomCard = () => {
+  const deck = createDeck();
+  const randomCardIndex = Math.floor(Math.random() * deck.length);
+  let userRandomCard = deck[randomCardIndex];
+  const youWinMessage = "Smaller😎";
+  const youLostMessage = "Bigger😑";
+  const tieGame = "Tie🤷";
 
-  document.querySelector(".card-user-suit").textContent =
-    cardNumberOne.suitType;
-  document.querySelector(".card-user-number").textContent =
-    cardNumberOne.cardNumber;
+  document.querySelector(".userUpperSuit").textContent =
+    userRandomCard.suitKind;
+  document.querySelector(".userCardNumber").textContent = userRandomCard.number;
+  document.querySelector(".userBottomSuit").textContent =
+    userRandomCard.suitKind;
 
-  if (cardNumberOne.cardValue > randomDefaultCard.cardValue) {
-    document.querySelector(".feedbackmessage").textContent = greaterFeedback;
+  if (userRandomCard.value < defaultCard.value) {
+    document.querySelector(".message").textContent = youWinMessage;
+  }
+  if (userRandomCard.value > defaultCard.value) {
+    document.querySelector(".message").textContent = youLostMessage;
+  }
+  if (userRandomCard.value === defaultCard.value) {
+    document.querySelector(".message").textContent = tieGame;
   }
 
-  if (cardNumberOne.cardValue < randomDefaultCard.cardValue) {
-    document.querySelector(".feedbackmessage").textContent = smallerFeedback;
-  }
-
-  if (cardNumberOne.cardValue === randomDefaultCard.cardValue) {
-    document.querySelector(".feedbackmessage").textContent = sameValueFeedback;
-  }
-
-  setTimeout(startGame, "3000");
-
-  return;
+  setTimeout(startGame, "2000");
 };
 
 const startGame = () => {
-  randomDefaultCard = displayRandomDefaultCard();
-  startButton.classList.add("hidden");
-  twoButtons.classList.remove("hidden");
-  cardSquare.classList.remove("hidden");
-  feedBack.classList.remove("hidden");
-  document.querySelector(".card-user-suit").textContent = "";
-  document.querySelector(".card-user-number").textContent = "❔";
-  document.querySelector(".feedbackmessage").textContent = "";
+  defaultRandomCard();
+  buttonStartSection.classList.add("hidden");
+  cardsSection.classList.remove("hidden");
+  msgBox.classList.remove("hidden");
+  buttonSection.classList.remove("hidden");
+  document.querySelector(".userCardNumber").textContent = "❔";
+  document.querySelector(".message").textContent = "";
 };
 
-const greaterButton = document.querySelector(".greater");
-greaterButton.addEventListener("click", selectRandomBiggerCard);
+const starButtonElement = document.querySelector(".start-button");
+starButtonElement.addEventListener("click", startGame);
 
-const smallerButton = document.querySelector(".smaller");
-smallerButton.addEventListener("click", selectRandomSmallerCard);
+const buttonStartSection = document.querySelector(".buttonStart");
 
-const startButton = document.querySelector(".start-button");
-startButton.addEventListener("click", startGame);
+const cardsSection = document.querySelector(".cards-section");
 
-const cardSquare = document.querySelector(".cards");
+const msgBox = document.querySelector(".message-box");
 
-const feedBack = document.querySelector(".feedbackmessage");
+const buttonSection = document.querySelector(".button-section");
 
-const twoButtons = document.querySelector(".button-section");
+const biggerButtonElement = document.querySelector(".bigger");
+biggerButtonElement.addEventListener("click", selectBiggerRandomCard);
+
+const smallerButtonElement = document.querySelector(".smaller");
+smallerButtonElement.addEventListener("click", selectSmallerRandomCard);
